@@ -1,10 +1,9 @@
 #!/usr/bin/perl
-use 5.10.1;
 use strict;
 use warnings;
 
 package Authen::Krb5::Effortless;
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 use Carp;
 use parent qw(Authen::Krb5);
 
@@ -97,17 +96,17 @@ return 1;
 
 =head1 NAME
 
-Authen::Krb5::Effortless - This module is a subclass to Authen::Krb5, adding 'Effortless' ways to authenticate against a KDC server.
+Authen::Krb5::Effortless - This module is a subclass to Authen::Krb5, adding 'Effortless' ways to authenticate against a Kerberos Domain Controller.
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
 =head1 Description
 
-Authen::Krb5::Effortless is more then a 'Simple' module, as it supports both passphrase and keytab based authorization.   
+Authen::Krb5::Effortless is more then a 'Simple' module, as it supports both pass-phrase and key-tab based authorization.   
 
 =head1 Methods
 
@@ -146,7 +145,7 @@ A keytab example:
   use Authen::Krb5::Effortless;
   my $username  =  getlogin();                            
   my $keytab    =  "/path/to/my/keytab";
-  my $krb5      =  KRB5_KeyAuth->new();
+  my $krb5      =  Authen::Krb5::Effortless->new();
   $krb5->fetch_TGT_KEYTAB($keytab, $username);
 
 
@@ -154,14 +153,14 @@ A password example:
 
   use Authen::Krb5::Effortless;
   my $username = getlogin();
-  my $krb5   = KRB5_KeyAuth->new();
+  my $krb5   = Authen::Krb5::Effortless->new();
   $krb5->fetch_TGT_PW('sekret_phss_wurd', $username);
 
 
 A example for reading cache:
 
   use Authen::Krb5::Effortless;
-  my $krb5  = KRB5_KeyAuth->new();
+  my $krb5  = Authen::Krb5::Effortless->new();
   $krb5->read_cache();
   if ($krb5->{'cache_present'}) { 
     print $krb5->{'principal'}, "\n";
@@ -171,7 +170,7 @@ A example for reading cache:
 A example for deleting the cache:
 
   use Authen::Krb5::Effortless;
-  my $krb5  = KRB5_KeyAuth->new();
+  my $krb5  = Authen::Krb5::Effortless->new();
   $krb5->clear_cache();
 
 =head1 REQUIREMENETS

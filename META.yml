@@ -1,5 +1,5 @@
 ---
-abstract: "This module is a subclass to Authen::Krb5, adding 'Effortless' ways to authenticate against a KDC server."
+abstract: "This module is a subclass to Authen::Krb5, adding 'Effortless' ways to authenticate against a Kerberos Domain Controller."
 author:
   - 'Adam Faris <afaris@cpan.org>'
 build_requires:
@@ -16,11 +16,12 @@ name: Authen-Krb5-Effortless
 provides:
   Authen::Krb5::Effortless:
     file: lib/Authen/Krb5/Effortless.pm
-    version: 0.01
+    version: 0.02
 requires:
   Authen::Krb5: 0
   Carp: 0
-  perl: 5.010001
+  parent: 0
+  perl: 5.006
 resources:
   license: http://www.apache.org/licenses/LICENSE-2.0.txt
-version: 0.01
+version: 0.02
